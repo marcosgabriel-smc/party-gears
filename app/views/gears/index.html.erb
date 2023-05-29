@@ -1,0 +1,14 @@
+<h1>Gears</h1>
+<ul>
+  <% @gears.each do |gear| %>
+    <li><%= link_to gear.name, gear %></li>
+  <% end %>
+</ul>
+<% if user_signed_in? %>
+  <%= button_to(
+    'logout',
+    destroy_user_session_path,
+    method: :delete,
+    data: { turbo_confirmation: 'Sure?' }
+  )%>
+<% end %>
