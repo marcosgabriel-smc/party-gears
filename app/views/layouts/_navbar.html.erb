@@ -1,16 +1,25 @@
 <nav class="navbar navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand fw-bold">TOP RENTS</a>
+    <%= link_to(
+      "TOP RENTS",
+      gears_path,
+      class: "navbar-brand fw-bold"
+    ) %>
+    <%# <a class="navbar-brand fw-bold">TOP RENTS</a> %>
+    <% if user_signed_in? %>
+      <%= link_to "View Profile", profile_path(@user) %>
+      <%= button_to(
+        'logout',
+        destroy_user_session_path,
+        method: :delete,
+        data: { turbo_confirmation: 'Sure?' }
+      )%>
+      <% else %>
+        <%= link_to "Login", new_user_session_path %>
+    <% end %>
     <form class="d-flex" role="search">
       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-light" type="submit">Search</button>
     </form>
   </div>
-</nav>
-<nav class="navbar bg-light">
-  <form class="container-fluid justify-content-center">
-    <button class="btn btn-outline-dark me-2" type="button">Box</button>
-    <button class="btn btn-outline-dark me-2" type="button">DJ</button>
-    <button class="btn btn-outline-dark me-2" type="button">light</button>
-  </form>
 </nav>
