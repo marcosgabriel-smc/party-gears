@@ -1,9 +1,16 @@
 <h1>Gears</h1>
-<ul>
+<div class="row justify-content-between">
   <% @gears.each do |gear| %>
-    <li><%= link_to gear.name, gear %></li>
+  <div class="card col-2 m-3 rounded-3" style="width: 18rem;">
+  <%= image_tag gear.image_url, class: "card-img-top mt-3", alt: "Card image cap" %>
+  <div class="card-body">
+    <h5 class="card-title"><%= gear.name %></h5>
+    <p class="card-text"><%= gear.description %></p>
+    <%= link_to "View", gear, class: "btn btn-primary" %>
+  </div>
+</div>
   <% end %>
-</ul>
+</div>
 <% if user_signed_in? %>
   <%= button_to(
     'logout',
