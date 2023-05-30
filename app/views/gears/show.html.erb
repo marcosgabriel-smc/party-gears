@@ -1,11 +1,19 @@
 <div class="row">
   <div class="col w-25 p-3">
-    <%= image_tag @gear.image_url %>
+    <%= image_tag @gear.image_url, class: 'img-fluid' %>
   </div>
   <div class="col m-3">
     <h1 class="fw-bold"><%= @gear.name %></h1>
     <h5><%= @gear.price %></h5>
-  <div class="col">
-    <p class="fw-light"><%= @gear.description %></p>
+    <div class="col">
+      <p class="fw-light"><%= @gear.description %></p>
+    </div>
+    <div>
+      <%= simple_form_for [@gear, @offer] do |f| %>
+        <%= f.input :start_date %>
+        <%= f.input :end_date %>
+        <%= f.submit %>
+      <% end %>
+    </div>
   </div>
 </div>

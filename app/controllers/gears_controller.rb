@@ -7,6 +7,7 @@ class GearsController < ApplicationController
   end
 
   def show
+    @offer = Offer.new
   end
 
   def new
