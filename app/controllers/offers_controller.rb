@@ -3,10 +3,13 @@ class OffersController < ApplicationController
 
   def create
     @offer = Offer.new(offer_params)
+    @gear = Gear.find(params[:gear_id])
+    @offer.gear = @gear
+    @offer.user = current_user
     if @offer.save
-      redirect_to @offer.gear
+      redirect_to @gear
     else
-      render 'gear/show', status: :unprocessable_entity
+      render 'gears/show', status: :unprocessable_entity
     end
   end
 
@@ -14,7 +17,7 @@ class OffersController < ApplicationController
     if @offer.update(offer_params)
       redirect_to @gear
     else
-      render 'gear/show', status: :unprocessable_entity
+      render 'gears/show', status: :unprocessable_entity
     end
   end
 
@@ -31,6 +34,6 @@ class OffersController < ApplicationController
   end
 
   def offer_params
-    params.require(:offer).permit(:gear, :start_date, :end_date, :is_accepted)
+    params.require(:offer).permit(:start_date, :end_date)
   end
 end

@@ -1,8 +1,19 @@
-<div>
-<h1><%= @gear.name %></h1>
-    <%= @gear.category %>
-    <%= @gear.description %>
-    <%= @gear.price %>
-  <%= @gear.image_url %>
-<%= link_to 'Back to home', root_path %>
+<div class="row">
+  <div class="col w-25 p-3">
+    <%= image_tag @gear.image_url, class: 'img-fluid' %>
+  </div>
+  <div class="col m-3">
+    <h1 class="fw-bold"><%= @gear.name %></h1>
+    <h6 class="fst-italic opacity-75">$<%= @gear.price %></h6>
+    <div class="col">
+      <p class="fw-light opacity-75"><%= @gear.description %></p>
+    </div>
+    <div>
+      <%= simple_form_for [@gear, @offer] do |f| %>
+        <%= f.input :start_date %>
+        <%= f.input :end_date %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
 </div>
