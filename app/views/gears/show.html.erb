@@ -1,8 +1,11 @@
-<div>
-<h1><%= @gear.name %></h1>
-    <%= @gear.category %>
-    <%= @gear.description %>
-    <%= @gear.price %>
-  <%= @gear.image_url %>
-<%= link_to 'Back to home', root_path %>
+<div class="row">
+  <div class="col w-25 p-3">
+    <%= image_tag @gear.image_url %>
+  </div>
+  <div class="col m-3">
+    <h1 class="fw-bold"><%= @gear.name %></h1>
+    <h5><%= @gear.price %></h5>
+  <div class="col">
+    <p class="fw-light"><%= @gear.description %></p>
+  </div>
 </div>
