@@ -7,6 +7,7 @@ class Gear < ApplicationRecord
 
   validates :name, :description, :price, presence: true
   validates :category, inclusion: { in: CATEGORIES }
+  validates :price, numericality: { only_integer: true }
 
   # def is_vailable?
   # end
