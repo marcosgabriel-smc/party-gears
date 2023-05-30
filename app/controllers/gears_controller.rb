@@ -5,6 +5,7 @@ class GearsController < ApplicationController
 
   def index
     @gears = Gear.all
+    @user = current_user if user_signed_in?
   end
 
   def show
