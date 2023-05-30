@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :gears do
     resources :offers, except: :destroy
   end
+  resources :offers, only: :destroy
 end
