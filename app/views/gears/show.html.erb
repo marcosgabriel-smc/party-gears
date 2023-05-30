@@ -1,0 +1,19 @@
+<h1><%= @gear.name %></h1>
+<ul>
+  <li>
+    Category:
+    <%= @gear.category %>
+  </li>
+  <li>
+    Description:
+    <%= @gear.description %>
+  </li>
+  <li>
+    Price:
+    <%= @gear.price %>
+  </li>
+  <li>
+    Picture: <%= @gear.image_url %>
+  </li>
+</ul>
+<%= link_to 'Back to home', root_path %>
