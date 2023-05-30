@@ -1,10 +1,10 @@
 class GearsController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[index show]
+  skip_before_action :authenticate_user!, only: %i[index show categories]
   before_action :set_gear, only: %i[show edit update destroy]
+  before_action :set_user
 
   def index
     @gears = Gear.all
-    @user = current_user if user_signed_in?
   end
 
   def show
@@ -42,10 +42,18 @@ class GearsController < ApplicationController
     redirect_to gears_path
   end
 
+  def categories
+    @gears = Gear.where(category: params[:category])
+  end
+
   private
 
   def set_gear
     @gear = Gear.find(params[:id])
+  end
+
+  def set_user
+    @user = current_user if user_signed_in?
   end
 
   def gear_params
