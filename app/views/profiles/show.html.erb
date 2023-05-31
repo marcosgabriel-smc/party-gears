@@ -15,7 +15,7 @@
     <div class="row justify-content-center">
       <% @owner.gears.each do |gear| %>
         <div class="card col-2 m-3 rounded-3" style="width: 18rem;">
-          <%= image_tag gear.image_url, class: "card-img-top mt-3", alt: "Card image cap" %>
+          <%= image_tag gear.image_url, class: "object-fit-none", alt: "Card image cap" %>
           <div class="card-body">
             <h5 class="card-title"><%= gear.name %></h5>
             <p class="card-text"><%= gear.price %></p>

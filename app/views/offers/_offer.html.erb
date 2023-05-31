@@ -1,0 +1,39 @@
+<div class="row">
+  <!-- image -->
+  <div class="col w-25 p-3">
+    <%= image_tag offer.gear.image_url, class: 'img-fluid' %>
+  </div>
+  <!-- offer (aka reservation) details -->
+  <div class="col m-3">
+    <h2 class="fw-bold"><%= offer.gear.name %></h2>
+    <p>
+      To be reserved from
+      <strong>
+        <%= offer.start_date %>
+      </strong>
+      to
+      <strong>
+        <%= offer.end_date %>.
+      </strong>
+    </p>
+    Number of days: <%= (offer.end_date - offer.start_date).to_i %>
+    <br>
+    Price per day: $<%= offer.gear.price %>
+    <hr>
+    <p class="fst-italic opacity-75">
+      <strong>Total Price: $<%= offer.total_price %></strong>
+    </p>
+    <% if @offer.confirmed? %>
+      <span class='border border-success p-2 rounded'>Reservation confirmed</span>
+    <% else %>
+      <hr>
+      <%= button_to(
+        'Confirm Reservation',
+        gear_offer_path(@gear, @offer),
+        class: 'btn btn-danger text-white',
+        method: :patch,
+        params: { confirmed: true }
+      )%>
+    <% end %>
+  </div>
+</div>

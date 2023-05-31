@@ -31,7 +31,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_31_160410) do
     t.bigint "user_id", null: false
     t.date "start_date"
     t.date "end_date"
-    t.boolean "is_accepted", default: false
+    t.boolean "confirmed", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.decimal "total_price"

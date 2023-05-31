@@ -1,7 +1,11 @@
 class OffersController < ApplicationController
-  before_action :set_offer, except: :create
+  before_action :set_offer, only: %i[show update destroy]
 
   def show
+  end
+
+  def new
+    @offer = Offer.new(offer_params)
   end
 
   def create
@@ -18,8 +22,8 @@ class OffersController < ApplicationController
   end
 
   def update
-    if @offer.update(offer_params)
-      redirect_to @gear
+    if @offer.update(confirmed: params[:confirmed])
+      redirect_to @offer
     else
       render 'gears/show', status: :unprocessable_entity
     end
