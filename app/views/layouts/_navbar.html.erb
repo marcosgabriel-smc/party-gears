@@ -1,4 +1,4 @@
-<nav class="navbar navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand fw-bold" href="/">Party Gears</a>
     <% if user_signed_in? %>
@@ -13,7 +13,7 @@
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
             <li class="nav-item">
-              <a class="nav-link" href="#">Profile</a>
+              <%= link_to "Profile", my_profile_path, class: "nav-link" %>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -23,7 +23,7 @@
                 <li><a class="dropdown-item" href="#">My Rents</a></li>
                 <li><a class="dropdown-item" href="#">Wish List</a></li>
               </ul>
-                <li><a class="dropdown-item fw-light" destroy_user_session_path>Logout</a></li>
+                <li><%= button_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item fw-light" %></li>
             </li>
           </ul>
         </div>
@@ -31,23 +31,5 @@
       <button type="button" class="btn btn-outline-light"><%= link_to "Login", new_user_session_path %></button>
       <% end %>
     </div>
-  </div>
-</nav>
-    <%# <a class="navbar-brand fw-bold">TOP RENTS</a> %>
-    <% if user_signed_in? %>
-      <%# <%= link_to "View Profile", profile_path(@user) %>
-      <%= button_to(
-        'logout',
-        destroy_user_session_path,
-        method: :delete,
-        data: { turbo_confirm: 'Sure?' }
-      )%>
-    <% else %>
-      <%= link_to "Login", new_user_session_path %>
-    <% end %>
-    <form class="d-flex" role="search">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-light" type="submit">Search</button>
-    </form>
   </div>
 </nav>
