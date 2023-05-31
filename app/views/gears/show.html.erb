@@ -8,18 +8,19 @@
     <div class="col">
       <p class="fw-light opacity-75"><%= @gear.description %></p>
     </div>
-    <div>
-      <%= simple_form_for [@gear, @offer] do |f| %>
-        <%= f.input :start_date %>
-        <%= f.input :end_date %>
-        <%= link_to 'Reserve', new_gear_offer_path(@gear) %>
-        <%# <%= f.submit class: 'btn btn-danger text-white rounded-3' %>
-      <% end %>
-    </div>
+    <% if @owner != @user  %>
+      <div>
+        <%= simple_form_for [@gear, @offer] do |f| %>
+          <%= f.input :start_date %>
+          <%= f.input :end_date %>
+          <%= f.submit class: 'btn btn-danger text-white rounded-3' %>
+        <% end %>
+      </div>
+    <% end %>
     <% if @user == @owner  %>
-      <%= link_to "Visit my profile!", my_profile_path %>
+      <%= link_to "Visit my profile!", my_profile_path, class: "btn fw-light opacity-75" %>
     <% else %>
-      <%= link_to "Visit #{@owner.name} profile!", gear_profile_path([@gear, @owner]) %>
+      <%= link_to "Visit #{@owner.name} profile!", gear_profile_path([@gear, @owner]), class: "btn fw-light opacity-75" %>
     <% end %>
   </div>
 </div>

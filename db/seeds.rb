@@ -13,17 +13,23 @@ puts 'Creating 3 users...'
 User.create!(
   name: 'meleu',
   email: 'meleu@rbnb.com',
-  password: 'asdfgçlkjh'
+  password: 'asdfgçlkjh',
+  bio: Faker::Quote.matz,
+  avatar: 'https://github.com/meleu.png'
 )
 User.create!(
   name: 'marcos',
   email: 'marcos@rbnb.com',
-  password: 'asdfgçlkjh'
+  password: 'asdfgçlkjh',
+  bio: Faker::Quote.matz,
+  avatar: 'https://github.com/marcosgabriel-smc.png'
 )
 User.create!(
   name: 'douglas',
   email: 'douglas@rbnb.com',
-  password: 'asdfgçlkjh'
+  password: 'asdfgçlkjh',
+  bio: Faker::Quote.matz,
+  avatar: 'https://github.com/Douglasgpassos.png'
 )
 
 images = {
