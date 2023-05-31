@@ -22,8 +22,8 @@ class OffersController < ApplicationController
   end
 
   def update
-    if @offer.update(offer_params)
-      redirect_to @gear
+    if @offer.update(confirmed: params[:confirmed])
+      redirect_to @offer
     else
       render 'gears/show', status: :unprocessable_entity
     end

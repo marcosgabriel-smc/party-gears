@@ -7,7 +7,7 @@
   <div class="col m-3">
     <h2 class="fw-bold"><%= offer.gear.name %></h2>
     <p>
-      Reserved from
+      To be reserved from
       <strong>
         <%= offer.start_date %>
       </strong>
@@ -16,15 +16,24 @@
         <%= offer.end_date %>.
       </strong>
     </p>
-    <h6 class="fst-italic opacity-75">
-      <strong>Number of days: <%= (offer.end_date - offer.start_date).to_i %></strong>
-    </h6>
-    <h6 class="fst-italic opacity-75">
-      <strong>Price per day: $<%= offer.gear.price %></strong>
-    </h6>
+    Number of days: <%= (offer.end_date - offer.start_date).to_i %>
+    <br>
+    Price per day: $<%= offer.gear.price %>
     <hr>
-    <h6 class="fst-italic opacity-75">
+    <p class="fst-italic opacity-75">
       <strong>Total Price: $<%= offer.total_price %></strong>
-    </h6>
+    </p>
+    <% if @offer.confirmed? %>
+      <span class='border border-success p-2 rounded'>Reservation confirmed</span>
+    <% else %>
+      <hr>
+      <%= button_to(
+        'Confirm Reservation',
+        gear_offer_path(@gear, @offer),
+        class: 'btn btn-danger text-white',
+        method: :patch,
+        params: { confirmed: true }
+      )%>
+    <% end %>
   </div>
 </div>
