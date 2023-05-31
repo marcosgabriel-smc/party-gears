@@ -20,6 +20,6 @@
         )%>
       <% end %>
     </div>
-    <%= link_to "Visit #{@gear.user.name} profile!", gear_profile_path([@gear, @owner]) %>
+    <%= link_to "Visit #{@owner.name} profile!", gear_profile_path([@gear, @owner]) %>
   </div>
 </div>
