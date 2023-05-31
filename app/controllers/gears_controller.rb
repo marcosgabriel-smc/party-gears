@@ -10,6 +10,7 @@ class GearsController < ApplicationController
 
   def show
     @offer = Offer.new
+    @owner = @gear.user
   end
 
   def new

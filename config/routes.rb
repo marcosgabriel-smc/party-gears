@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :gears do
     resources :offers, except: :destroy
+    resources :profiles, only: :show
 
     collection do
       get 'categories/:category', to: "gears#categories", as: 'category'
@@ -12,5 +13,5 @@ Rails.application.routes.draw do
   end
 
   resources :offers, only: :destroy
-  resources :profiles, only: :show
+  get 'profiles/my_profile', to: 'profiles#my_profile', as: 'my_profile'
 end
