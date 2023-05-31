@@ -8,7 +8,6 @@
     <div class="col">
       <p class="fw-light opacity-75"><%= @gear.description %></p>
     </div>
-    <%# <% if current_user != @gear.user  %>
     <% if current_user != @gear.user %>
       <div>
         <%= simple_form_for [@gear, @offer] do |f| %>
