@@ -20,6 +20,10 @@
         )%>
       <% end %>
     </div>
-    <%= link_to "Visit #{@owner.name} profile!", gear_profile_path([@gear, @owner]) %>
+    <% if @user == @owner  %>
+      <%= link_to "Visit my profile!", my_profile_path %>
+    <% else %>
+      <%= link_to "Visit #{@owner.name} profile!", gear_profile_path([@gear, @owner]) %>
+    <% end %>
   </div>
 </div>
