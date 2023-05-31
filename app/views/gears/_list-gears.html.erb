@@ -1,0 +1,29 @@
+<div class="navbar bg-light container-fluid justify-content-center">
+  <% Gear::CATEGORIES.each do |cat| %>
+    <% if @category == cat %>
+      <%= link_to(
+        cat.upcase,
+        root_path,
+        class: 'btn btn-dark me-2'
+      ) %>
+    <% else %>
+      <%= link_to(
+        cat.upcase,
+        category_gears_path(cat),
+        class: 'btn btn-outline-dark me-2'
+      ) %>
+    <% end %>
+  <% end %>
+</div>
+<div class="row justify-content-between">
+  <% gears.each do |gear| %>
+    <div class="card col-2 m-3 rounded-3" style="width: 18rem;">
+      <%= image_tag gear.image_url, class: "card-img-top mt-3", alt: "Card image cap" %>
+      <div class="card-body">
+        <h5 class="card-title"><%= gear.name %></h5>
+        <p class="card-text"><%= gear.price %></p>
+        <%= link_to "View", gear, class: "btn btn btn-dark" %>
+      </div>
+    </div>
+  <% end %>
+</div>

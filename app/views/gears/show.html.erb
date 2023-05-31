@@ -12,7 +12,12 @@
       <%= simple_form_for [@gear, @offer] do |f| %>
         <%= f.input :start_date %>
         <%= f.input :end_date %>
-        <%= f.submit %>
+        <%= f.submit(
+          class: 'btn btn-danger text-white rounded-3',
+          data: {
+            turbo_confirm: "Confirm you want to rent \"#{@gear.name}\"?"
+          }
+        )%>
       <% end %>
     </div>
   </div>
