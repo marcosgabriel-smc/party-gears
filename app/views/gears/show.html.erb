@@ -21,7 +21,7 @@
       <% end %>
     </div>
     <% if @user == @owner  %>
-      <%= link_to "Visit my profile!", my_profile_path %>
+      <p class="fw-light opacity-75"><%= link_to "Visit my profile!", my_profile_path %></p>
     <% else %>
       <%= link_to "Visit #{@owner.name} profile!", gear_profile_path([@gear, @owner]) %>
     <% end %>
