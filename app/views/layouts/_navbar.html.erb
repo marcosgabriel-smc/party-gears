@@ -12,7 +12,7 @@
         'logout',
         destroy_user_session_path,
         method: :delete,
-        data: { turbo_confirmation: 'Sure?' }
+        data: { turbo_confirm: 'Sure?' }
       )%>
     <% else %>
       <%= link_to "Login", new_user_session_path %>

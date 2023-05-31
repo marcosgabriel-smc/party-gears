@@ -1,13 +1,17 @@
 class OffersController < ApplicationController
   before_action :set_offer, except: :create
 
+  def show
+  end
+
   def create
     @offer = Offer.new(offer_params)
     @gear = Gear.find(params[:gear_id])
     @offer.gear = @gear
     @offer.user = current_user
+    @offer.total_price = @gear.price * (@offer.end_date - @offer.start_date).to_i
     if @offer.save
-      redirect_to @gear
+      redirect_to gear_offer_path(@gear, @offer)
     else
       render 'gears/show', status: :unprocessable_entity
     end
