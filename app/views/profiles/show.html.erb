@@ -1,6 +1,28 @@
-<%# <div class="">
-  <%= image_tag @user.image_url, class: 'rounded' %>
-	<%# <h1 class="fw-bold"><%= @user.name</h1> %> %>
-<%# </div> %> %>
-
-<h1>Welcome to the <%= @owner.name %> profile</h1>
+<div class="container-fluid m-5">
+  <div class="d-flex align-items-center">
+    <%= image_tag(@owner.avatar, alt: "Profile Picture", class: "img-thumbnail rounded-5")%>
+    <div class="flex-column m-3">
+      <div>
+        <h2><%= @owner.name.capitalize %></h2>
+      </div>
+      <div>
+        <p><%= @owner.bio %></p>
+      </div>
+    </div>
+  </div>
+  <div class="container my-4">
+    <h2 class="text-center">Gears for rental</h2>
+    <div class="row justify-content-center">
+      <% @owner.gears.each do |gear| %>
+        <div class="card col-2 m-3 rounded-3" style="width: 18rem;">
+          <%= image_tag gear.image_url, class: "card-img-top mt-3", alt: "Card image cap" %>
+          <div class="card-body">
+            <h5 class="card-title"><%= gear.name %></h5>
+            <p class="card-text"><%= gear.price %></p>
+            <%= link_to "View", gear, class: "btn btn btn-dark" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
