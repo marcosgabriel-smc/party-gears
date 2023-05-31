@@ -19,7 +19,6 @@ class GearsController < ApplicationController
 
   def create
     @gear = Gear.new
-    # @user = User.find(params[:user_id]) - User já foi defino no before_action
     @gear.user = @user
     if @gear.save
       redirect_to @gear
