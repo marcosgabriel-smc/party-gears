@@ -1,0 +1,31 @@
+<h1>Confirmation</h1>
+<div class="row">
+  <!-- image -->
+  <div class="col w-25 p-3">
+    <%= image_tag @gear.image_url, class: 'img-fluid' %>
+  </div>
+  <!-- offer (aka reservation) details -->
+  <div class="col m-3">
+    <h2 class="fw-bold"><%= @offer.gear.name %></h2>
+    <p>
+      Reserved from
+      <strong>
+        <%= @offer.start_date %>
+      </strong>
+      to
+      <strong>
+        <%= @offer.end_date %>.
+      </strong>
+    </p>
+    <h6 class="fst-italic opacity-75">
+      <strong>Number of days: <%= (@offer.end_date - @offer.start_date).to_i %></strong>
+    </h6>
+    <h6 class="fst-italic opacity-75">
+      <strong>Price per day: $<%= @offer.gear.price %></strong>
+    </h6>
+    <hr>
+    <h6 class="fst-italic opacity-75">
+      <strong>Total Price: $<%= @offer.total_price %></strong>
+    </h6>
+  </div>
+</div>

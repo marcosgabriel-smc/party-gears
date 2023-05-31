@@ -44,7 +44,8 @@ class GearsController < ApplicationController
   end
 
   def categories
-    @gears = Gear.where(category: params[:category])
+    @category = params[:category]
+    @gears = Gear.where(category: @category)
   end
 
   private
