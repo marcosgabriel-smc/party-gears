@@ -1,7 +1,11 @@
 class OffersController < ApplicationController
-  before_action :set_offer, except: :create
+  before_action :set_offer, only: %i[show update destroy]
 
   def show
+  end
+
+  def new
+    @offer = Offer.new(offer_params)
   end
 
   def create
