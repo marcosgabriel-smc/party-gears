@@ -10,6 +10,7 @@ class GearsController < ApplicationController
 
   def show
     @offer = Offer.new
+    @owner = User.find(Gear.find(params[:id]).user_id)
   end
 
   def new
