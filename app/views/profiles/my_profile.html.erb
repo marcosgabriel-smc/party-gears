@@ -1,1 +1,45 @@
-<h1>Welcome to your profile, <%= @user.name %></h1>
+<div class="container d-flex flex-row">
+  <div class="container">
+    <div class="container">
+      <h2>Your Offers</h2>
+      <ol class="list-group list-group-horizontal-xxl list-group-numbered">
+        <% @user.offers.each do |offer| %>
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+              <div class="ms-2 me-auto">
+                <div class="fw-bold">Equipment: <%= offer.gear.name %></div>
+                <h4>Renter: <%= offer.user.name %></h4>
+                <p>Start date: <%= offer.start_date %></p>
+                <p>End date: <%= offer.end_date %></p>
+              </div>
+          </li>
+        <% end %>
+      </ol>
+    </div>
+    <div class="container">
+      <h2>Your Equipment</h2>
+      <div class="d-flex flex-row">
+        <% @user.gears.each do |gear| %>
+          <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <%= image_tag(gear.image_url, alt: "Gear Photo", class: 'img-fluid rounded-start') %>
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title"><%= gear.name %></h5>
+                  <p class="card-text"><%= gear.description %></p>
+                  <p class="card-text"><small class="text-body-secondary"><%= link_to "Edit this gear", edit_gear_path(gear) %></small></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex flex-column p-3 ms-3">
+    <%= image_tag(@user.avatar, size: "100", alt: "Profile Picture")%>
+    <h2><%= @user.name.capitalize %></h2>
+    <%= link_to "Put a new gear for rent!", new_gear_path %>
+  </div>
+</div>
