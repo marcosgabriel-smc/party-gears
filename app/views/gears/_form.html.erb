@@ -4,7 +4,7 @@
       <%= f.input :description %>
       <%= f.input :price %>
       <%= f.input :image_url %>
-      <%= f.input :category, collection: Gear::CATEGORIES %>
+      <%= f.input :category, collection: Gear::CATEGORIES if is_new %>
       <div class="d-flex justify-content-between">
         <%= f.submit class: "btn btn-light"%>
         <%= link_to "Go back to my profile", my_profile_path, class: "btn btn-light align-self-end" %>
