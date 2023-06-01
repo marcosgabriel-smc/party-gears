@@ -14,21 +14,14 @@
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
             <li class="nav-item">
               <%= link_to "Profile", my_profile_path, class: "nav-link" %>
+              <% link_to "My Rents" %>
             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Items
-              </a>
-              <ul class="dropdown-menu dropdown-menu-dark">
-                <li><a class="dropdown-item" href="#">My Rents</a></li>
-                <li><a class="dropdown-item" href="#">Wish List</a></li>
-              </ul>
                 <li><%= button_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item fw-light" %></li>
             </li>
           </ul>
         </div>
       <% else %>
-      <button type="button" class="btn btn-outline-light"><%= link_to "Login", new_user_session_path %></button>
+      <button type="button" class="btn btn-outline-light"><%= link_to "Login", new_user_session_path, class: "text-decoration: none" %></button>
       <% end %>
     </div>
   </div>
