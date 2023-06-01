@@ -15,14 +15,18 @@
     <% end %>
   <% end %>
 </div>
-<div class="row justify-content-between">
+<div class="row d-flex flex-wrap px-5">
   <% gears.each do |gear| %>
-    <div class="card col-2 m-3 rounded-3" style="width: 18rem;">
-      <%= image_tag(gear.image_url, class: "card-img-top mt-3 object-fit-none", alt: "Card image cap") %>
-      <div class="card-body">
-        <h5 class="card-title"><%= gear.name %></h5>
-        <p class="card-text"><%= gear.price %></p>
-        <%= link_to "View", gear, class: "btn btn btn-dark" %>
+    <div class="card col-1 m-2 rounded-3 row" style="width: 18rem;">
+      <div class="card-body d-flex flex-column">
+        <%# <div class="flex-grow-2"> %>
+          <%= image_tag(gear.image_url, class: "card-img-top mt-3 object-fit-cover flex-grow-2", alt: "Card image cap") %>
+        <%# </div> %>
+        <div class="flex-grow-1">
+          <h5 class="card-title"><%= gear.name %></h5>
+          <p class="card-text"><%= gear.price %></p>
+          <%= link_to "View", gear, class: "btn btn btn-dark" %>
+        </div>
       </div>
     </div>
   <% end %>
