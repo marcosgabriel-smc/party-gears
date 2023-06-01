@@ -3,7 +3,10 @@ class ProfilesController < ApplicationController
   before_action :set_user
 
   def my_profile
-    @my_offers = Offer.where(user: @user)
+    ## Assingning different values so the sorts puts the true/false  in an order
+    @my_gears = Gear.where(user: @user)
+    @reservations = @user.offers.sort_by{|offer| offer.start_date}
+    @my_offers = Offer.joins(gear: :user).where(users: { id: current_user.id })
   end
 
   def show
@@ -16,5 +19,4 @@ class ProfilesController < ApplicationController
   def set_user
     @user = current_user if user_signed_in?
   end
-
 end
