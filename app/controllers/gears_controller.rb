@@ -9,10 +9,10 @@ class GearsController < ApplicationController
   end
 
   def show
+    @review = Review.new if Offer.exists?(user: current_user, gear: @gear)
+
     @offer = Offer.new
-    @review = Review.new
     @reviews = Review.where(gear: @gear)
-    @owner = @gear.user
   end
 
   def new
