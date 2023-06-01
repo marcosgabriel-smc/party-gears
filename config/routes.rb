@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :gears do
     resources :offers, except: :destroy
     resources :profiles, only: :show
+    resources :reviews, only: [:new, :create]
 
     collection do
       get 'categories/:category', to: "gears#categories", as: 'category'
