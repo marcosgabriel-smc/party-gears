@@ -3,6 +3,7 @@ class ProfilesController < ApplicationController
   before_action :set_user
 
   def my_profile
+    @my_offers = Offer.where(user: @user)
   end
 
   def show

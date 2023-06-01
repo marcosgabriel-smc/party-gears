@@ -33,9 +33,9 @@ douglas = User.create!(
 )
 
 images = {
-  'dj' => 'https://cdn.awsli.com.br/600x450/2511/2511094/produto/191248690/3f146d2a98.jpg',
-  'sound' => 'https://images.unsplash.com/photo-1620456175552-c82581ade74e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80',
-  'lighting' => 'https://sb7someluz.com.br/wp-content/uploads/2015/04/Profissionais-do-Ano-06.jpg'
+  'DJ' => 'https://cdn.awsli.com.br/600x450/2511/2511094/produto/191248690/3f146d2a98.jpg',
+  'SOUND' => 'https://images.unsplash.com/photo-1620456175552-c82581ade74e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80',
+  'LIGHTING' => 'https://sb7someluz.com.br/wp-content/uploads/2015/04/Profissionais-do-Ano-06.jpg'
 }
 
 puts 'Cleaning the gears table...'

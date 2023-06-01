@@ -14,4 +14,5 @@ Rails.application.routes.draw do
 
   resources :offers, only: :destroy
   get 'profiles/my_profile', to: 'profiles#my_profile', as: 'my_profile'
+  patch 'edit_accepted/:offer_id', to: "offers#accepted", as: 'accepted'
 end
