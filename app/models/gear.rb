@@ -1,5 +1,5 @@
 class Gear < ApplicationRecord
-  CATEGORIES = %w[dj sound lighting]
+  CATEGORIES = %w[DJ SOUND LIGHTING]
 
   belongs_to :user, class_name: 'User', foreign_key: :user_id
 

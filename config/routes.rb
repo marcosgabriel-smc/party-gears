@@ -10,9 +10,10 @@ Rails.application.routes.draw do
     collection do
       get 'categories/:category', to: "gears#categories", as: 'category'
     end
-
   end
+
 
   resources :offers, only: :destroy
   get 'profiles/my_profile', to: 'profiles#my_profile', as: 'my_profile'
+  patch 'edit_accepted/:offer_id', to: "offers#accepted", as: 'accepted'
 end

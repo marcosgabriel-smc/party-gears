@@ -26,9 +26,9 @@
     <% if current_user != @gear.user %>
       <div>
         <%= simple_form_for [@gear, @offer] do |f| %>
-          <%= f.input :start_date %>
-          <%= f.input :end_date %>
-          <%= f.submit class: 'btn btn-dark text-white rounded-3' %>
+          <%= f.input :start_date, html5: true, input_html: { value: Date.today.to_s } %>
+          <%= f.input :end_date, html5: true %>
+          <%= f.submit class: 'btn btn-danger text-white rounded-3' %>
         <% end %>
       </div>
       <%= link_to(

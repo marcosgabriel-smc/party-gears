@@ -10,12 +10,43 @@
                 <%= image_tag(offer.gear.image_url, alt: "Gear Photo", class: 'img-fluid rounded-start') %>
               </div>
               <div class="col-md-8">
-                <div class="card-body">
+                <div class="card-body card-body-my-profile">
                   <h5 class="card-title">Equipment: <%= offer.gear.name %></h5>
                   <p class="card-text">Owner: <%= offer.gear.user.name.capitalize %></p>
                   <p class="card-text"><small class="text-body-secondary">Start date: <%= offer.start_date %></small></p>
                   <p class="card-text"><small class="text-body-secondary">End date: <%= offer.end_date %></small></p>
+                  <p class="card-text"><small class="text-body-secondary">Total Price: $<%= offer.total_price %></small></p>
                   <p class="card-text"><small class="text-body-secondary"><%= link_to "View Equipment", gear_path(offer.gear) %></small></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="container">
+      <h2 class="m-3">Offers for you Equipment</h2>
+      <div class="flex-row flex-fill">
+        <% @my_offers.each do |offer| %>
+          <div class="card m-1 flex-fill" >
+            <div class="row g-0">
+              <div class="col-md-4">
+                <%= image_tag(offer.gear.image_url, alt: "Gear Photo", class: 'img-fluid rounded-start m-3') %>
+              </div>
+              <div class="col-md-8 row flex-fill">
+                <div class="card-body col-8">
+                  <h5 class="card-title">Equipment: <%= offer.gear.name %></h5>
+                  <p class="card-text">Renter: <%= offer.user.name.capitalize %></p>
+                  <p class="card-text"><small class="text-body-secondary">Start date: <%= offer.start_date %></small></p>
+                  <p class="card-text"><small class="text-body-secondary">End date: <%= offer.end_date %></small></p>
+                  <p class="card-text"><small class="text-body-secondary"><%= link_to "View Equipment", gear_path(offer.gear) %></small></p>
+                </div>
+                <div class="col py-3">
+                  <% if offer.accepted %>
+                    <p class="btn btn-outline-success">Accepted</p>
+                  <% else %>
+                    <%= button_to "Accept", accepted_path(offer), method: :patch, class:"btn btn-outline-secondary" %>
+                  <% end %>
                 </div>
               </div>
             </div>
