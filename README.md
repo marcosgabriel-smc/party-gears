@@ -32,3 +32,10 @@ REMINDERS
 (LOW PRIORITY)
 - Implement Reviews
 - Implement more than one photo of gear -> slide show
+
+
+- Route after login in
+- Dropdown menu
+- More photos of each equipment
+- My profile -> Include total price
+- Na tela de edição, não permitir alterar categoria

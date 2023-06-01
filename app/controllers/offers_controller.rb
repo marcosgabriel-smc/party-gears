@@ -13,8 +13,9 @@ class OffersController < ApplicationController
     @gear = Gear.find(params[:gear_id])
     @offer.gear = @gear
     @offer.user = current_user
-    @offer.total_price = @gear.price * (@offer.end_date - @offer.start_date).to_i
     if @offer.save
+      @offer.total_price = @gear.price * (@offer.end_date - @offer.start_date).to_i
+      @offer.save
       redirect_to gear_offer_path(@gear, @offer)
     else
       render 'gears/show', status: :unprocessable_entity
@@ -32,6 +33,13 @@ class OffersController < ApplicationController
   def destroy
     @offer.destroy
     redirect_to @gear
+  end
+
+  def accepted
+    @offer = Offer.find(params[:offer_id])
+    @offer.accepted = !@offer.accepted
+    @offer.save!
+    redirect_to my_profile_path
   end
 
   private
