@@ -39,3 +39,4 @@ REMINDERS
 - More photos of each equipment
 - My profile -> Include total price
 - Na tela de edição, não permitir alterar categoria
+- mexer no espaçamento do p
