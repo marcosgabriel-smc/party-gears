@@ -10,6 +10,8 @@ class GearsController < ApplicationController
 
   def show
     @offer = Offer.new
+    @review = Review.new
+    @reviews = Review.where(gear: @gear)
     @owner = @gear.user
   end
 
