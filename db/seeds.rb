@@ -111,7 +111,7 @@ Offer.create!(
 )
 
 Offer.new(
-  gear: dj,
+  gear: sound,
   user: meleu,
   start_date: last_year,
   end_date: last_month,
@@ -121,7 +121,7 @@ Offer.new(
 ).save(validate: false)
 
 Offer.create!(
-  gear: sound,
+  gear: dj,
   user: meleu,
   start_date: today,
   end_date: tomorrow,
