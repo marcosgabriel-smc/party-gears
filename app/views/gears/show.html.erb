@@ -15,14 +15,12 @@
         <%= review.content %>
       </p>
     <% end %>
-    
-    <% if user_signed_in? %>
+    <% unless @review.nil? %>
       <%= simple_form_for  [@gear, @review] do |f| %>
         <%= f.input :content %>
         <%= f.submit class: 'btn btn-dark text-white rounded-3' %>
       <% end %>
     <% end %>
-
     <% if current_user != @gear.user %>
       <div>
         <%= simple_form_for [@gear, @offer] do |f| %>

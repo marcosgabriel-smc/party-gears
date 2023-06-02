@@ -1,6 +1,12 @@
 <nav class="navbar navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand fw-bold" href="/">Party Gears</a>
+    <div class="row justify-content-center">
+      <%= form_with url: gears_path, method: :get, class: 'd-flex' do %>
+        <%= text_field_tag :query, params[:query] %>
+        <%= submit_tag 'Search', name: '', class: 'btn btn-outline-light' %>
+      <% end %>
+    </div>
     <% if user_signed_in? %>
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
         <span class="navbar-toggler-icon"><%= image_tag(@user.avatar, size: "30", alt: "Profile Picture", class: "align-self-center rounded-circle")%></span>
@@ -25,4 +31,5 @@
       <% end %>
     </div>
   </div>
+</div>
 </nav>
