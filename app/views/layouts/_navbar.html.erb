@@ -3,7 +3,7 @@
     <a class="navbar-brand fw-bold" href="/">Party Gears</a>
     <% if user_signed_in? %>
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
-        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"><%= image_tag(@user.avatar, size: "30", alt: "Profile Picture", class: "align-self-center rounded-circle")%></span>
       </button>
       <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
         <div class="offcanvas-header">
