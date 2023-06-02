@@ -4,7 +4,7 @@ class Gear < ApplicationRecord
   include PgSearch::Model
   pg_search_scope(
     :search,
-    against: %i[name description],
+    against: %i[name description category],
     using: {
       tsearch: { prefix: true }
     }
