@@ -12,7 +12,7 @@
       <h4 class="fw-bold">Reviews</h4>
       <% @reviews.each do |review| %>
         <p>
-          <%= image_tag(@user.avatar, size: "20", alt: "Profile Picture", class: "align-self-center rounded-circle")%> <%= review.user.name.capitalize %> :
+          <%= image_tag(@review.user.avatar, size: "20", alt: "Profile Picture", class: "align-self-center rounded-circle")%> <%= review.user.name.capitalize %> :
           <%= review.content %>
         </p>
       <% end %>
