@@ -53,7 +53,9 @@
                   <p class="card-text"><small class="text-body-secondary"><%= link_to "Send email", "mailto:#{offer.user.email}" %></small></p>
                 </div>
                 <div class="col py-3">
-                  <% if offer.accepted %>
+                  <% if offer.end_date < Date.today %>
+                    <p class="btn btn-outline-dark">Finished</p>
+                  <% elsif offer.accepted %>
                     <p class="btn btn-outline-success">Accepted</p>
                   <% else %>
                     <%= button_to "Accept", accepted_path(offer), method: :patch, class:"btn btn-outline-secondary" %>
