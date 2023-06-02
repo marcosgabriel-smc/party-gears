@@ -16,7 +16,8 @@
                   <p class="card-text"><small class="text-body-secondary">Start date: <%= offer.start_date %></small></p>
                   <p class="card-text"><small class="text-body-secondary">End date: <%= offer.end_date %></small></p>
                   <p class="card-text"><small class="text-body-secondary">Total Price: $<%= offer.total_price %></small></p>
-                  <p class="card-text"><small class="text-body-secondary"><%= link_to "View Equipment", gear_path(offer.gear) %></small></p>
+                  <p class="card-text"><small class="text-body-secondary"><%= link_to "View Gear", gear_path(offer.gear) %></small></p>
+                  <p class="card-text"><small class="text-body-secondary"><%= link_to "Send email", "mailto:#{offer.gear.user.email}" %></small></p>
                 </div>
               </div>
             </div>
@@ -25,7 +26,7 @@
       </div>
     </div>
     <div class="container">
-      <h2 class="m-3">Offers for you Equipment</h2>
+      <h2 class="m-3">Offers for your Gears</h2>
       <div class="flex-row flex-fill">
         <% @my_offers.each do |offer| %>
           <div class="card m-1 flex-fill" >
@@ -39,7 +40,8 @@
                   <p class="card-text">Renter: <%= offer.user.name.capitalize %></p>
                   <p class="card-text"><small class="text-body-secondary">Start date: <%= offer.start_date %></small></p>
                   <p class="card-text"><small class="text-body-secondary">End date: <%= offer.end_date %></small></p>
-                  <p class="card-text"><small class="text-body-secondary"><%= link_to "View Equipment", gear_path(offer.gear) %></small></p>
+                  <p class="card-text"><small class="text-body-secondary"><%= link_to "View Gear", gear_path(offer.gear) %></small></p>
+                  <p class="card-text"><small class="text-body-secondary"><%= link_to "Send email", "mailto:#{offer.user.email}" %></small></p>
                 </div>
                 <div class="col py-3">
                   <% if offer.accepted %>
@@ -55,7 +57,7 @@
       </div>
     </div>
     <div class="container">
-      <h2 class="m-3">Your Equipment</h2>
+      <h2 class="m-3">Your Gears</h2>
       <div class="flex-row">
         <% @user.gears.each do |gear| %>
           <div class="card m-1 flex-fill" >
@@ -79,7 +81,7 @@
   <div class="d-flex flex-column p-3 ms-3">
     <div class="card my-5 p-3 rounded-2">
       <%= image_tag(@user.avatar, size: "100", alt: "Profile Picture", class: "align-self-center")%>
-      <h2><%= @user.name.capitalize %></h2>
+      <h2 class="text-center"><%= @user.name.capitalize %></h2>
       <p class="fw-light"><%= link_to "Add a new gear for rent!", new_gear_path, class: "btn btn-primary" %></p>
     </div>
   </div>
