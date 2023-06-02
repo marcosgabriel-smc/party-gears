@@ -9,8 +9,8 @@
               <div class="col-md-4">
                 <%= image_tag(offer.gear.image_url, alt: "Gear Photo", class: 'img-fluid rounded-start') %>
               </div>
-              <div class="col-md-8">
-                <div class="card-body card-body-my-profile">
+              <div class="col-md-8 row flex-fill">
+                <div class="card-body">
                   <h5 class="card-title"><%= offer.gear.name %></h5>
                   <p class="card-text">Owner: <%= offer.gear.user.name.capitalize %></p>
                   <p class="card-text"><small class="text-body-secondary">Start date: <%= offer.start_date %></small></p>
@@ -18,6 +18,15 @@
                   <p class="card-text"><small class="text-body-secondary">Total Price: $<%= offer.total_price %></small></p>
                   <p class="card-text"><small class="text-body-secondary"><%= link_to "View Gear", gear_path(offer.gear) %></small></p>
                   <p class="card-text"><small class="text-body-secondary"><%= link_to "Send email", "mailto:#{offer.gear.user.email}" %></small></p>
+                </div>
+                <div class="col py-3">
+                  <% if offer.end_date < Date.today %>
+                    <p class="btn btn-outline-dark">Finished</p>
+                  <% elsif offer.accepted? %>
+                    <p class="btn btn-outline-success">Accepted</p>
+                  <% else %>
+                    <p class="btn btn-outline-warning">Pending</p>
+                  <% end %>
                 </div>
               </div>
             </div>
