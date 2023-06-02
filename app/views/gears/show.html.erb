@@ -8,12 +8,14 @@
     <div class="col">
       <p class="fw-light opacity-75"><%= @gear.description %></p>
     </div>
-    <h4 class="fw-bold">Reviews</h4>
-    <% @reviews.each do |review| %>
-      <p>
-        <%= image_tag(@user.avatar, size: "20", alt: "Profile Picture", class: "align-self-center rounded-circle")%> <%= review.user.name.capitalize %> :
-        <%= review.content %>
-      </p>
+    <% unless @reviews.empty? %>
+      <h4 class="fw-bold">Reviews</h4>
+      <% @reviews.each do |review| %>
+        <p>
+          <%= image_tag(@user.avatar, size: "20", alt: "Profile Picture", class: "align-self-center rounded-circle")%> <%= review.user.name.capitalize %> :
+          <%= review.content %>
+        </p>
+      <% end %>
     <% end %>
     <% unless @review.nil? %>
       <%= simple_form_for  [@gear, @review] do |f| %>
