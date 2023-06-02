@@ -96,54 +96,64 @@ end
 puts 'Creating some offers'
 today = Date.today
 tomorrow = Date.tomorrow
-interval = (tomorrow - today).to_i
+interval_yesterday = (tomorrow - today).to_i
+
+last_month = Date.today << 1
+last_year = Date.today << 12
+interval_past_year = (last_year - last_month)
 
 Offer.create!(
   gear: dj,
   user: marcos,
   start_date: today,
   end_date: tomorrow,
-  total_price: dj.price * interval
+  total_price: dj.price * interval_yesterday
 )
 
-Offer.create!(
+Offer.new(
   gear: dj,
   user: meleu,
-  start_date: today,
-  end_date: tomorrow,
-  total_price: dj.price * interval
-)
+  start_date: last_year,
+  end_date: last_month,
+  total_price: dj.price * interval_past_year,
+  accepted: true,
+  confirmed: true
+).save(validate: false)
 
 Offer.create!(
   gear: sound,
   user: meleu,
   start_date: today,
   end_date: tomorrow,
-  total_price: sound.price * interval
+  total_price: sound.price * interval_yesterday
 )
 
-Offer.create!(
+Offer.new(
   gear: sound,
   user: douglas,
-  start_date: today,
-  end_date: tomorrow,
-  total_price: sound.price * interval
-)
+  start_date: last_year,
+  end_date: last_month,
+  total_price: sound.price * interval_past_year,
+  accepted: true,
+  confirmed: true
+).save(validate: false)
 
 Offer.create!(
   gear: lighting,
   user: douglas,
   start_date: today,
   end_date: tomorrow,
-  total_price: lighting.price * interval
+  total_price: lighting.price * interval_yesterday
 )
 
-Offer.create!(
+Offer.new(
   gear: lighting,
   user: marcos,
-  start_date: today,
-  end_date: tomorrow,
-  total_price: lighting.price * interval
-)
+  start_date: last_year,
+  end_date: last_month,
+  total_price: lighting.price * interval_past_year,
+  accepted: true,
+  confirmed: true
+).save(validate: false)
 
 puts 'Finished!'
