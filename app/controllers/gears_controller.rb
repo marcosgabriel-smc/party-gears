@@ -15,7 +15,7 @@ class GearsController < ApplicationController
   def show
     has_old_offer = Offer
                     .where('end_date < ?', Date.today)
-                    .exists?(user_id: current_user, gear_id: @gear, accepted: true)
+                    .exists?(user: current_user, gear: @gear, accepted: true)
 
     @review = Review.new if has_old_offer
 

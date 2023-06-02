@@ -1,7 +1,7 @@
 <nav class="navbar navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand fw-bold" href="/">Party Gears</a>
-    <div class="row justify-content-center">
+    <div class="row justify-content-left">
       <%= form_with url: gears_path, method: :get, class: 'd-flex' do %>
         <%= text_field_tag :query, params[:query] %>
         <%= submit_tag 'Search', name: '', class: 'btn btn-outline-light' %>
@@ -9,7 +9,7 @@
     </div>
     <% if user_signed_in? %>
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
-        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"><%= image_tag(current_user.avatar, size: "30", alt: "Profile Picture", class: "align-self-center rounded-circle")%></span>
       </button>
       <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
         <div class="offcanvas-header">
@@ -22,13 +22,14 @@
               <%= link_to "Profile", my_profile_path, class: "nav-link" %>
               <% link_to "My Rents" %>
             </li>
-            <li><%= button_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item fw-light" %></li>
-          </li>
-        </ul>
-      </div>
-    <% else %>
-      <button type="button" class="btn btn-outline-light"><%= link_to "Login", new_user_session_path, class: "text-decoration: none" %></button>
-    <% end %>
+                <li><%= button_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item fw-light" %></li>
+            </li>
+          </ul>
+        </div>
+      <% else %>
+      <%= link_to "Login", new_user_session_path, class: "btn btn-outline-light" %>
+      <% end %>
+    </div>
   </div>
 </div>
 </nav>
