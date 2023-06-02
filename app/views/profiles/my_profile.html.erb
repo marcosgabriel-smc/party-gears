@@ -82,7 +82,7 @@
     <div class="card my-5 p-3 rounded-2">
       <%= image_tag(@user.avatar, size: "100", alt: "Profile Picture", class: "align-self-center")%>
       <h2 class="text-center"><%= @user.name.capitalize %></h2>
-      <p class="fw-light"><%= link_to "Add a new gear for rent!", new_gear_path, class: "btn btn-primary" %></p>
+      <p class="fw-light text-center"><%= link_to "Add gear", new_gear_path, class: "btn btn-primary" %></p>
     </div>
   </div>
 </div>
