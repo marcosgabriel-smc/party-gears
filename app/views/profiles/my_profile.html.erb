@@ -1,7 +1,7 @@
 <div class="container d-flex flex-row">
   <div class="container">
     <div class="container">
-      <h2 class="m-3">Your Next Rentals</h2>
+      <h2 class="m-3 text-center">Your Next Rentals</h2>
       <div class="flex-row">
         <% @user.offers.each do |offer| %>
           <div class="card m-1 flex-fill" >
@@ -13,11 +13,12 @@
                 <div class="card-body">
                   <h5 class="card-title"><%= offer.gear.name %></h5>
                   <p class="card-text">Owner: <%= offer.gear.user.name.capitalize %></p>
-                  <p class="card-text"><small class="text-body-secondary">Start date: <%= offer.start_date %></small></p>
-                  <p class="card-text"><small class="text-body-secondary">End date: <%= offer.end_date %></small></p>
-                  <p class="card-text"><small class="text-body-secondary">Total Price: $<%= offer.total_price %></small></p>
-                  <p class="card-text"><small class="text-body-secondary"><%= link_to "View Gear", gear_path(offer.gear) %></small></p>
-                  <p class="card-text"><small class="text-body-secondary"><%= link_to "Send email", "mailto:#{offer.gear.user.email}" %></small></p>
+                  Start date: <%= offer.start_date %><br>
+                  End date: <%= offer.end_date %><br>
+                  Total Price: $<%= offer.total_price %><br>
+                  <br>
+                  <%= link_to "View Gear", gear_path(offer.gear) %><br>
+                  <%= link_to "Send email", "mailto:#{offer.gear.user.email}" %><br>
                 </div>
                 <div class="col py-3">
                   <% if offer.end_date < Date.today %>
@@ -35,7 +36,7 @@
       </div>
     </div>
     <div class="container">
-      <h2 class="m-3">Offers for your Gears</h2>
+      <h2 class="m-3 text-center">Offers for your Gears</h2>
       <div class="flex-row flex-fill">
         <% @my_offers.each do |offer| %>
           <div class="card m-1 flex-fill" >
@@ -47,10 +48,11 @@
                 <div class="card-body col-8">
                   <h5 class="card-title"><%= offer.gear.name %></h5>
                   <p class="card-text">Renter: <%= offer.user.name.capitalize %></p>
-                  <p class="card-text"><small class="text-body-secondary">Start date: <%= offer.start_date %></small></p>
-                  <p class="card-text"><small class="text-body-secondary">End date: <%= offer.end_date %></small></p>
-                  <p class="card-text"><small class="text-body-secondary"><%= link_to "View Gear", gear_path(offer.gear) %></small></p>
-                  <p class="card-text"><small class="text-body-secondary"><%= link_to "Send email", "mailto:#{offer.user.email}" %></small></p>
+                  Start date: <%= offer.start_date %><br>
+                  End date: <%= offer.end_date %><br>
+                  <br>
+                  <%= link_to "View Gear", gear_path(offer.gear) %><br>
+                  <%= link_to "Send email", "mailto:#{offer.user.email}" %><br>
                 </div>
                 <div class="col py-3">
                   <% if offer.end_date < Date.today %>
@@ -68,7 +70,7 @@
       </div>
     </div>
     <div class="container">
-      <h2 class="m-3">Your Gears</h2>
+      <h2 class="m-3 text-center">Your Gears</h2>
       <div class="flex-row">
         <% @user.gears.each do |gear| %>
           <div class="card m-1 flex-fill" >
@@ -90,7 +92,7 @@
     </div>
   </div>
   <div class="d-flex flex-column p-3 ms-3">
-    <div class="card my-5 p-3 rounded-2">
+    <div class="card my-5 py-3 px-4 rounded-2">
       <%= image_tag(@user.avatar, size: "100", alt: "Profile Picture", class: "align-self-center")%>
       <h2 class="text-center"><%= @user.name.capitalize %></h2>
       <p class="fw-light text-center"><%= link_to "Add gear", new_gear_path, class: "btn btn-primary" %></p>
