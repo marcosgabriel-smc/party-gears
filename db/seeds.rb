@@ -100,7 +100,7 @@ interval_yesterday = (tomorrow - today).to_i
 
 last_month = Date.today << 1
 last_year = Date.today << 12
-interval_past_year = (last_year - last_month)
+interval_past_year = (last_month - last_year)
 
 Offer.create!(
   gear: dj,
